@@ -19,9 +19,25 @@ let capAmerica = {
         city: 'surat',
         state: 'Rajkot'
     },
-    sayHi: function(){
+    sayHi: function () {
         console.log("Cap America says Namaste")
     }
 }
+//whole object
+//console.log(capAmerica);
 
-console.log(capAmerica);
+//name oF capAmerica
+console.log(capAmerica.Name);
+//age oF capAmerica
+console.log(capAmerica.Age);
+//Friends oF CapAmerica
+console.log(capAmerica.Friends);
+//address oF capAmerica 
+//console.log(capAmerica.address);
+console.log(capAmerica.address.city);
+
+// sayHi
+
+capAmerica.sayHi();
+
+
