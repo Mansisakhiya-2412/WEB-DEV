@@ -15,9 +15,10 @@ let capAmerica = {
     Name: 'steve',
     Age: 9898,
     Friends: ['Natasha', 'Thor', 'Tony', 'Hulk'],
-    address: {
-        city: 'surat',
-        state: 'Rajkot'
+    dapoo: 'false',
+        address: {
+            city: 'surat',
+            state: 'Rajkot'
     },
     sayHi: function () {
         console.log("Cap America says Namaste")
@@ -37,7 +38,28 @@ console.log(capAmerica.Friends);
 console.log(capAmerica.address.city);
 
 // sayHi
-
 capAmerica.sayHi();
+
+console.log("objects beFore update : ", capAmerica);
+//add a new key to  object
+capAmerica.Movies = ['avengers', 'civil war', 'endgame'];
+console.log("objects ater update : ", capAmerica);
+
+//delete a key
+delete capAmerica.Movies;
+
+console.log(capAmerica);
+
+capAmerica.dapoo = true;
+console.log(capAmerica);
+
+capAmerica.address.state = 'New York';
+console.log(capAmerica);
+
+
+//second method to access a key
+
+console.log(capAmerica.Name);
+console.log(capAmerica['Name']);
 
 
