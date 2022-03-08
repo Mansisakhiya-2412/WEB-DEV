@@ -16,7 +16,7 @@ eleArr[3] = "nothing";
 
 console.log(eleArr);
 
-console.log("###############################")
+console.log("##################################")
 
 //Arrays method
 //1. push
