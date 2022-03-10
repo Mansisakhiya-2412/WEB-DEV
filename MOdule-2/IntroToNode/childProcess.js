@@ -10,3 +10,4 @@ cp.execSync("calc");
 let content = cp.execSync("node dapo.js");
 
 console.log("when darpan is thinking about doru and suddenly : "+ content);
+//console.log(""+content);
