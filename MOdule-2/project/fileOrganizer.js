@@ -33,7 +33,16 @@ if (Folderexists) {
     for (let i = 0; i < Files.length; i++) {
         let ext = path.extname(Files[i]);
         let nameofFolder = giveFolderName(ext);
-        console.log("Ext--",ext," Folder--",nameofFolder);
+        //console.log("Ext--",ext," Folder--",nameofFolder);
+        let pathOfNewFolder = path.join(Folderpath, nameofFolder);
+        let exist = fs.existsSync(pathOfNewFolder);
+        if (exist) {
+            moveFile(Folderpath,pathOfNewFolder,Files[i]);
+        } else {
+            fs.mkdirSync(pathOfNewFolder);
+
+            moveFile(Folderpath,pathOfNewFolder,Files[i]);
+        }
     }
 
 } else {
@@ -42,13 +51,13 @@ if (Folderexists) {
 
 
 
-function giveFolderName(ext){
+function giveFolderName(ext) {
 
     for (let key in extensions)//For-each loop
     {
         let extArr = extensions[key];
-        for(let i = 0; i <extArr.length ; i++){
-            if (extArr[i] == ext){
+        for (let i = 0; i < extArr.length; i++) {
+            if (extArr[i] == ext) {
                 return key;
             }
         }
@@ -56,3 +65,13 @@ function giveFolderName(ext){
     return "Others";
 
 }
+
+
+function moveFile(Folderpath, pathOfNewFolder, FileName) {
+    let sourcePath = path.join(Folderpath, FileName);
+    let destinationPath = path.join(pathOfNewFolder, FileName);
+    //fs.copyFileSync(sourcePath,destinationPath);
+    fs.unlinkSync(sourcePath);
+
+}
+//fs.unlinkSync(path.join(Folderpath, Files[i]));
