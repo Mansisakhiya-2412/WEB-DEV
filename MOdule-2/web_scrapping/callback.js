@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-console.log("Beore : ");
+console.log("BeFore : ");
 
 fs.readFile("File.txt", cb);
 
@@ -15,4 +15,4 @@ function cb(error, data) {
 
 //console.log(content + " ");
 
-console.log("Ater :");
+console.log("AFter :");
