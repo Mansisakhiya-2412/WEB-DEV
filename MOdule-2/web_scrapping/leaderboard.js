@@ -17,11 +17,37 @@ function cb(error, response, html) {
 
         let allScorecardTags = document.querySelectorAll('a[data-hover = "Scorecard"]');
         //console.log(allScorecardTags.length);
-        for (let i = 0; i < allScorecardTags.length ; i++) {
+        for (let i = 0; i < allScorecardTags.length; i++) {
             let link = allScorecardTags[i].href;
-            let completelink = "https://www.espncricinfo.com"+link;
-            console.log(completelink);
+            let completelink = "https://www.espncricinfo.com" + link;
+            //console.log(completelink);
+            request(completelink, cb2);
         }
+    }
+}
+
+function cb2(error, response, html) {
+    if (error) {
+        console.log(error);
+    } else {
+        const dom = new JSDOM(html);
+        const document = dom.window.document;
+
+        let batsmanRow = document.querySelectorAll(".table.batsman tbody tr");
+        //console.log(batsmanRow.length);
+
+        for(let i = 0 ; i < batsmanRow.length ; i++){
+            let cells = batsmanRow[i].querySelectorAll('td');
+            if(cells.length == 8){
+                let name = cells[0].textContent;
+                let runs = cells[2].textContent;
+                let balls = cells[3].textContent;
+                let Fours = cells[5].textContent;
+                let sixes = cells[6].textContent;
+               // console.log("Name : ",name,"Runs : ",runs,"Balls : ",balls,"Fours : ",Fours,"Sixes : ",sixes);
+            }
+        }
+
     }
 }
 
